@@ -21,7 +21,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        t = (TextView) findViewById(R.id.text);
+        t = (TextView) findViewById(R.id.user);
 
         DatabaseHandler db = new DatabaseHandler(getApplicationContext());
 
@@ -66,6 +66,9 @@ public class MainActivity extends ActionBarActivity {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_logout) {
             new UserFunctions().logoutUser(getApplicationContext());
+           Intent intent =new Intent(getApplicationContext(),Login.class);
+            startActivity(intent);
+            finish();
             return true;
         }
 

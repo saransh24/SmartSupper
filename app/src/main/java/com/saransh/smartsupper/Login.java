@@ -36,7 +36,8 @@ import java.util.Set;
 public class Login extends ActionBarActivity {
     CallbackManager callbackManager;
     AccessTokenTracker accessTokenTracker;
-    LoginButton loginButton;
+
+    int facebook_flag = 0;
 
     String email, password;
 
@@ -47,9 +48,6 @@ public class Login extends ActionBarActivity {
         login_facebook_background();
 
         setContentView(R.layout.activity_login);
-
-
-
     }
 
     public void login(View v) {
@@ -63,6 +61,7 @@ public class Login extends ActionBarActivity {
 
     public void login_facebook(View v) {
 
+        facebook_flag = 1;
         LoginManager.getInstance().logInWithReadPermissions(this, Arrays.asList("public_profile", "email"));
         accessTokenTracker = new AccessTokenTracker() {
             @Override
@@ -84,7 +83,7 @@ public class Login extends ActionBarActivity {
             JSONObject result = userFunctions.loginUser(email, password);
 
             if (result == null)
-                return "Null";
+                return "There was some internal error. Please try again later";
             try {
                 success = result.getInt("success");
 
@@ -94,19 +93,21 @@ public class Login extends ActionBarActivity {
                     userFunctions.logoutUser(getApplicationContext());
                     DatabaseHandler db = new DatabaseHandler(getApplicationContext());
 
-                    String name = result.getString("name");
-                    String email = result.getString("email");
-                    String id = result.getString("id");
-                    String method = result.getString("login_method");
+                    JSONObject user = result.getJSONObject("user");
+
+                    String name = user.getString("name");
+                    String email = user.getString("email");
+                    String id = user.getString("id");
+                    String method = user.getString("login_method");
 
                     db.addUser(id, name, email, method);
 
                     db.close();
-
                     Intent i = new Intent(getApplicationContext(), MainActivity.class);
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                     finish();
+
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -175,9 +176,10 @@ public class Login extends ActionBarActivity {
         });
     }
 
-    public void register(View v) {
+    public void register_intent(View v) {
         Intent i = new Intent(getApplicationContext(), SignUp.class);
         startActivity(i);
+        finish();
     }
 
     @Override
@@ -188,7 +190,8 @@ public class Login extends ActionBarActivity {
     @Override
     public void onDestroy(){
         super.onDestroy();
-        accessTokenTracker.stopTracking();
+        if(facebook_flag == 1)
+            accessTokenTracker.stopTracking();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

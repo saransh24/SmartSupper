@@ -140,7 +140,8 @@
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
                 android:textSize="20dp"
-                android:onClick="register"
+                android:clickable="true"
+                android:onClick="register_intent"
                 android:text="@string/registration"/>
 
         </LinearLayout>

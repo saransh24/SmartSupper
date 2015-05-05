@@ -1,5 +1,9 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <RelativeLayout  android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -45,7 +49,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Contact No."
-        android:id="@+id/contactno_text"
+        android:id="@+id/phone_text"
         android:textSize="22dp"
         android:layout_marginTop="35dp"
         android:textIsSelectable="false"
@@ -61,7 +65,7 @@
         android:textSize="22dp"
         android:layout_marginTop="35dp"
         android:textIsSelectable="false"
-        android:layout_below="@+id/contactno_text"
+        android:layout_below="@+id/phone_text"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -82,7 +86,7 @@
         android:inputType="textEmailAddress"
         android:text="abc@example.com"
         android:ems="10"
-        android:id="@+id/emailid"
+        android:id="@+id/email"
         android:layout_alignBottom="@+id/emailId_text"
         android:layout_alignLeft="@+id/fname"
         android:layout_alignStart="@+id/fname" />
@@ -92,8 +96,8 @@
         android:layout_height="wrap_content"
         android:inputType="phone"
         android:ems="10"
-        android:id="@+id/contactno"
-        android:layout_alignTop="@+id/contactno_text"
+        android:id="@+id/phone"
+        android:layout_alignTop="@+id/phone_text"
         android:layout_alignLeft="@+id/fname"
         android:layout_alignStart="@+id/fname" />
 
@@ -115,9 +119,11 @@
         android:id="@+id/submit"
         android:layout_marginTop="43dp"
         android:textSize="22dp"
+        android:onClick="register"
         android:layout_below="@+id/password"
         android:layout_alignLeft="@+id/textView"
         android:layout_alignStart="@+id/textView" />
 
 
 </RelativeLayout>
+</ScrollView>

@@ -1,16 +1,246 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/custom_border">>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/text"
-        android:text = ""
-        />
+        android:textSize="40dp"
+        android:gravity="center"
+        android:text="@string/app_name"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:textStyle="italic"
+        android:gravity="center"
+        android:text="@string/tagline"/>
 
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/custom_border">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginLeft="90dp"
+                android:textSize="25dp"
+                android:id="@+id/headline"
+                android:text = "@string/headline"
+                />
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:gravity="end"
+            android:id="@+id/user"
+            android:text =""
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@drawable/custom_border">>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:text = "@string/Course"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12dp"
+            android:gravity="end"
+            android:id="@+id/mycart"
+            android:clickable="true"
+            android:text = "My Cart"
+            android:onClick="mycart_start"
+            />
+    </LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/custom_border">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/custom_border">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:background="@drawable/custom_border">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:text = "@string/dish_name1"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:textSize="12dp"
+                android:gravity="end"
+                android:id="@+id/dish_rate1"
+                android:clickable="true"
+                android:text = "@string/dish_rate1"
+                />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal"
+                android:background="@drawable/custom_border">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"
+                    android:background="@drawable/custom_border">
+                    <ImageView
+                    android:layout_width="150dp"
+                    android:layout_height="125dp"
+                    android:src="@drawable/cholle"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/custom_border"
+                    android:weightSum="1">
+                    <Button
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:text="-"
+                        android:layout_weight="0.36"
+                        android:onClick="minus"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:textSize="20dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginTop="15dp"
+                        android:gravity="end"
+                        android:clickable="true"
+                        android:text = "@string/dish_quantity1"
+                        />
+                    <Button
+                        android:layout_width="20dp"
+                        android:layout_height="wrap_content"
+                        android:text="+"
+                        android:layout_weight="0.36"
+                        android:onClick="plus"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/custom_border">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/custom_border">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textSize="20dp"
+                        android:text = "@string/dish_name1"
+                        />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:textSize="12dp"
+                        android:gravity="end"
+                        android:clickable="true"
+                        android:text = "@string/dish_rate1"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="horizontal"
+                    android:background="@drawable/custom_border">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent"
+                        android:orientation="vertical"
+                        android:background="@drawable/custom_border">
+                        <ImageView
+                            android:layout_width="150dp"
+                            android:layout_height="125dp"
+                            android:src="@drawable/cholle"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="fill_parent"
+                        android:orientation="horizontal"
+                        android:background="@drawable/custom_border"
+                        android:weightSum="1">
+                        <Button
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:text="-"
+                            android:layout_weight="0.36"
+                            android:onClick="minus"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="fill_parent"
+                            android:textSize="20dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginRight="15dp"
+                            android:layout_marginTop="15dp"
+                            android:gravity="end"
+                            android:clickable="true"
+                            android:text = "@string/dish_quantity1"
+                            />
+                        <Button
+                            android:layout_width="20dp"
+                            android:layout_height="wrap_content"
+                            android:text="+"
+                            android:layout_weight="0.36"
+                            android:onClick="plus"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

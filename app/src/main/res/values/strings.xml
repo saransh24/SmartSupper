@@ -11,5 +11,13 @@
     <string name="username">Email: </string>
     <string name="password">Password: </string>
     <string name="registration">I do not have an account. Register Me</string>
+    <string name="tagline">Discover a smart way to good food!</string>
+    >
+    <string name="Course">Dishes</string>
+    <string name="dish_name1">cholle</string>
+    <string name="dish_rate1">Rs. 40/</string>
+    <string name="dish_quantity1">0</string>
+    <string name="headline">Today\'s Pick</string>
+    <string name="user" />
 
 </resources>
